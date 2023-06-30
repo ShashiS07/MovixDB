@@ -11,7 +11,7 @@ const HeroBanner = () => {
   const [background, setBackground] = useState("");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  
+
   const { url } = useSelector((state) => state.home);
   const { data, loading } = useFetch("/movie/upcoming");
 
