@@ -15,7 +15,11 @@ const Footer = () => {
           <li className="menuItem">About</li>
         </ul>
         <div className="infoText">
-          Welcome to the MOVIX App. Here you can search for the your favourite movie and also can see the trailer of that movie. This App provide you many functionalities such as you can see the ratings of the movie. This app is not limited for only movies, this app also provide you the list of TV Shows.  
+          Welcome to the MOVIX App. Here you can search for the your favourite
+          movie and also can see the trailer of that movie. This App provide you
+          many functionalities such as you can see the ratings of the movie.
+          This app is not limited for only movies, this app also provide you the
+          list of TV Shows.
         </div>
         <div className="socialIcons">
           <span className="icon">

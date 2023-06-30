@@ -10,6 +10,7 @@ export const homeSlice = createSlice({
     getApiConfiguration: (state, action) => {
       state.url = action.payload;
     },
+    
     getGenres: (state, action) => {
       state.genres = action.payload;
     },
