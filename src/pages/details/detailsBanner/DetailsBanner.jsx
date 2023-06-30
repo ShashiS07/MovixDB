@@ -43,7 +43,7 @@ const DetailsBanner = ({ video, crew }) => {
           {!!data && (
             <React.Fragment>
               <div className="backdrop-img">
-                <Img src={url.backdrop + data.backdrop_path} />
+                <LazyLoadImage src={url.backdrop + data.backdrop_path} alt="" effect="blur"/>
               </div>
               <div className="opacity-layer"></div>
               <ContentWrapper>
