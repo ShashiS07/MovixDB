@@ -9,15 +9,14 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
 import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/CircleRating";
-import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
 import { PlayIcon } from "../PlayIcon";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DetailsBanner = ({ video, crew }) => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
-  
 
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
@@ -51,12 +50,19 @@ const DetailsBanner = ({ video, crew }) => {
                 <div className="content">
                   <div className="left">
                     {data.poster_path ? (
-                      <Img
+                      <LazyLoadImage
                         className="posterImg"
                         src={url.backdrop + data.poster_path}
+                        alt=""
+                        effect="blur"
                       />
                     ) : (
-                      <Img className="posterImg" src={PosterFallback} />
+                      <LazyLoadImage
+                        className="posterImg"
+                        src={PosterFallback}
+                        alt=""
+                        effect="blur"
+                      />
                     )}
                   </div>
                   <div className="right">

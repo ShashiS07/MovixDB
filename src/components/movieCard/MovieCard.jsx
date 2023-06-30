@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import "./MovieCard.scss";
-import Img from "../lazyLoadImage/img";
 import CircleRating from "../circleRating/CircleRating";
 import Genres from "../genres/Genres";
 import PosterFallback from "../../assets/no-poster.png";
+import {LazyLoadImage } from "react-lazy-load-image-component";
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
     const { url } = useSelector((state) => state.home);
@@ -23,7 +23,7 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
             }
         >
             <div className="posterBlock">
-                <Img className="posterImg" src={posterUrl} />
+                <LazyLoadImage className="posterImg" src={posterUrl} alt="" effect="blur"/>
                 {!fromSearch && (
                     <React.Fragment>
                         <CircleRating rating={data.vote_average.toFixed(1)} />
