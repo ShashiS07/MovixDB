@@ -75,7 +75,7 @@ const DetailsBanner = ({ video, crew }) => {
                         className="playbtn"
                         onClick={() => {
                           setShow(true);
-                          setVideoId(videoId===null ? 'No Trailer Available' : video.key);
+                          setVideoId(video.key);
                         }}
                       >
                         <PlayIcon />
