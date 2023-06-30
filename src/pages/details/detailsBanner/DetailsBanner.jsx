@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -7,11 +7,11 @@ import "./DetailsBanner.scss";
 
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
+import Genres from "../../../components/genres/Genres";
+import CircleRating from "../../../components/circleRating/CircleRating";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
-import Genres from "../../../components/grenres/Genres";
-import CircleRating from "../../../components/circleRating/CircleRating";
-import { PlayIcon } from "../PlayIcon";
+import { PlayIcon } from "../Playbtn";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 
 const DetailsBanner = ({ video, crew }) => {
@@ -23,7 +23,7 @@ const DetailsBanner = ({ video, crew }) => {
 
   const { url } = useSelector((state) => state.home);
 
-  const _genres = data?.genres.map((g) => g.id);
+  const _genres = data?.genres?.map((g) => g.id);
 
   const director = crew?.filter((f) => f.job === "Director");
   const writer = crew?.filter(
@@ -41,7 +41,7 @@ const DetailsBanner = ({ video, crew }) => {
       {!loading ? (
         <>
           {!!data && (
-            <Fragment>
+            <React.Fragment>
               <div className="backdrop-img">
                 <Img src={url.backdrop + data.backdrop_path} />
               </div>
@@ -162,7 +162,7 @@ const DetailsBanner = ({ video, crew }) => {
                   setVideoId={setVideoId}
                 />
               </ContentWrapper>
-            </Fragment>
+            </React.Fragment>
           )}
         </>
       ) : (
