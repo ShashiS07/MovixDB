@@ -17,6 +17,7 @@ import VideoPopup from "../../../components/videoPopup/VideoPopup";
 const DetailsBanner = ({ video, crew }) => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
+  
 
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
@@ -74,7 +75,7 @@ const DetailsBanner = ({ video, crew }) => {
                         className="playbtn"
                         onClick={() => {
                           setShow(true);
-                          setVideoId(video.key);
+                          setVideoId(videoId===null ? 'No Trailer Available' : video.key);
                         }}
                       >
                         <PlayIcon />
